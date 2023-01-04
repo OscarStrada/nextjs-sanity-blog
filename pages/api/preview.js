@@ -1,7 +1,7 @@
 import { postBySlugQuery } from '../../lib/queries'
 import { previewClient } from '../../lib/sanity.server'
 
-function redirectToPreview(res, Location) {
+function redirectToPreview (res, Location) {
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({})
   // Redirect to a preview capable route
@@ -9,11 +9,11 @@ function redirectToPreview(res, Location) {
   res.end()
 }
 
-export default async function preview(req, res) {
+export default async function preview (req, res) {
   const secret = process.env.SANITY_STUDIO_PREVIEW_SECRET
   // Only require a secret when in production
   if (!secret && process.env.NODE_ENV === 'production') {
-    throw new TypeError(`Missing SANITY_STUDIO_PREVIEW_SECRET`)
+    throw new TypeError('Missing SANITY_STUDIO_PREVIEW_SECRET')
   }
   // Check the secret if it's provided, enables running preview mode locally before the env var is setup
   if (secret && req.query.secret !== secret) {
@@ -26,7 +26,7 @@ export default async function preview(req, res) {
 
   // Check if the post with the given `slug` exists
   const post = await previewClient.fetch(postBySlugQuery, {
-    slug: req.query.slug,
+    slug: req.query.slug
   })
 
   // If the slug doesn't exist prevent preview mode from being enabled

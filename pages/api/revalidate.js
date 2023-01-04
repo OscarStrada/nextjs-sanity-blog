@@ -4,15 +4,15 @@ import { sanityClient } from '../../lib/sanity.server'
 // Next.js will by default parse the body, which can lead to invalid signatures
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 }
 
 const AUTHOR_UPDATED_QUERY = /* groq */ `
   *[_type == "author" && _id == $id] {
     "slug": *[_type == "post" && references(^._id)].slug.current
   }["slug"][]`
-const POST_UPDATED_QUERY = /* groq */ `*[_type == "post" && _id == $id].slug.current`
+const POST_UPDATED_QUERY = /* groq */ '*[_type == "post" && _id == $id].slug.current'
 
 const getQueryForType = (type) => {
   switch (type) {
@@ -28,7 +28,7 @@ const getQueryForType = (type) => {
 const log = (msg, error) =>
   console[error ? 'error' : 'log'](`[revalidate] ${msg}`)
 
-async function readBody(readable) {
+async function readBody (readable) {
   const chunks = []
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk)
@@ -36,7 +36,7 @@ async function readBody(readable) {
   return Buffer.concat(chunks).toString('utf8')
 }
 
-export default async function revalidate(req, res) {
+export default async function revalidate (req, res) {
   const signature = req.headers[SIGNATURE_HEADER_NAME]
   const body = await readBody(req) // Read the body into a string
   if (

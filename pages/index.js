@@ -9,10 +9,10 @@ import { indexQuery } from '../lib/queries'
 import { usePreviewSubscription } from '../lib/sanity'
 import { getClient, overlayDrafts } from '../lib/sanity.server'
 
-export default function Index({ allPosts: initialAllPosts, preview }) {
+export default function Index ({ allPosts: initialAllPosts, preview }) {
   const { data: allPosts } = usePreviewSubscription(indexQuery, {
     initialData: initialAllPosts,
-    enabled: preview,
+    enabled: preview
   })
   const [heroPost, ...morePosts] = allPosts || []
   return (
@@ -40,11 +40,11 @@ export default function Index({ allPosts: initialAllPosts, preview }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps ({ preview = false }) {
   const allPosts = overlayDrafts(await getClient(preview).fetch(indexQuery))
   return {
     props: { allPosts, preview },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
-    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60
   }
 }
