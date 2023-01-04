@@ -9,48 +9,28 @@ You'll get:
 - Sub-second as-you-type previews in Next.js
 - [On-demand revalidation of pages](https://nextjs.org/blog/next-12-1#on-demand-incremental-static-regeneration-beta) with [GROQ powered webhooks](https://www.sanity.io/docs/webhooks)
 
-## Demo
-
-### [https://next-blog-sanity.vercel.app](https://next-blog-sanity.vercel.app)
-
-## Related examples
-
-- [WordPress](/examples/cms-wordpress)
-- [DatoCMS](/examples/cms-datocms)
-- [TakeShape](/examples/cms-takeshape)
-- [Prismic](/examples/cms-prismic)
-- [Contentful](/examples/cms-contentful)
-- [Strapi](/examples/cms-strapi)
-- [Agility CMS](/examples/cms-agilitycms)
-- [Cosmic](/examples/cms-cosmic)
-- [ButterCMS](/examples/cms-buttercms)
-- [Storyblok](/examples/cms-storyblok)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent](/examples/cms-kontent)
-- [Ghost](/examples/cms-ghost)
-- [Umbraco Heartcore](/examples/cms-umbraco-heartcore)
-- [Blog Starter](/examples/blog-starter)
-- [Builder.io](/examples/cms-builder-io)
-- [DotCMS](/examples/cms-dotcms)
-- [Enterspeed](/examples/cms-enterspeed)
-
 # Configuration
 
-- [Step 1. Set up the environment](#step-1-set-up-the-environment)
-- [Step 2. Configure CORS for localhost](#step-2-configure-cors-for-localhost)
-- [Step 3. Run Next.js locally in development mode](#step-3-run-nextjs-locally-in-development-mode)
-- [Step 4. Populate content](#step-4-populate-content)
-- [Step 5. Deploy to production & use Preview Mode from anywhere](#step-5-deploy-to-production--use-preview-mode-from-anywhere)
-  - [If you didn't Deploy with Vercel earlier do so now](#if-you-didnt-deploy-with-vercel-earlier-do-so-now)
-  - [Configure CORS for production](#configure-cors-for-production)
-  - [Add the preview secret environment variable](#add-the-preview-secret-environment-variable)
-  - [How to test locally that the secret is setup correctly](#how-to-test-locally-that-the-secret-is-setup-correctly)
-  - [How to start Preview Mode for Next.js in production from a local Studio](#how-to-start-preview-mode-for-nextjs-in-production-from-a-local-studio)
-  - [If you regret sending a preview link to someone](#if-you-regret-sending-a-preview-link-to-someone)
-- [Step 6. Deploy your Studio and publish from anywhere](#step-6-deploy-your-studio-and-publish-from-anywhere)
-- [Step 7. Setup Revalidation Webhook](#step-7-setup-revalidation-webhook)
-  - [Testing the Webhook](#testing-the-webhook)
-- [Next steps](#next-steps)
+- [A statically generated blog example using Next.js and Sanity](#a-statically-generated-blog-example-using-nextjs-and-sanity)
+- [Configuration](#configuration)
+  - [Step 1. Set up the environment](#step-1-set-up-the-environment)
+    - [Bootstrap the example](#bootstrap-the-example)
+    - [Connect to a Sanity project](#connect-to-a-sanity-project)
+    - [Set up environment variables](#set-up-environment-variables)
+  - [Step 2. Configure CORS for localhost](#step-2-configure-cors-for-localhost)
+  - [Step 3. Run Next.js locally in development mode](#step-3-run-nextjs-locally-in-development-mode)
+  - [Step 4. Populate content](#step-4-populate-content)
+  - [Step 5. Deploy to production \& use Preview Mode from anywhere](#step-5-deploy-to-production--use-preview-mode-from-anywhere)
+    - [If you didn't Deploy with Vercel earlier do so now](#if-you-didnt-deploy-with-vercel-earlier-do-so-now)
+    - [Configure CORS for production](#configure-cors-for-production)
+    - [Add the preview secret environment variable](#add-the-preview-secret-environment-variable)
+    - [How to test locally that the secret is setup correctly](#how-to-test-locally-that-the-secret-is-setup-correctly)
+    - [How to start Preview Mode for Next.js in production from a local Studio](#how-to-start-preview-mode-for-nextjs-in-production-from-a-local-studio)
+    - [If you regret sending a preview link to someone](#if-you-regret-sending-a-preview-link-to-someone)
+  - [Step 6. Deploy your Studio and publish from anywhere](#step-6-deploy-your-studio-and-publish-from-anywhere)
+  - [Step 7. Setup Revalidation Webhook](#step-7-setup-revalidation-webhook)
+    - [Testing the Webhook](#testing-the-webhook)
+  - [Next steps](#next-steps)
 
 ## Step 1. Set up the environment
 
