@@ -9,7 +9,7 @@ export default function Footer () {
             Blog.
           </h3>
           <h4 className='lg:w-1/2 text-right'>
-            Powered by Oscar Estrada copy&2023
+            Powered by Oscar Estrada ©2023
           </h4>
         </div>
       </Container>
